@@ -10,8 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/lua/lua.min.js"></script>
     
-    <!-- Fengari Lua VM for the web -->
-    <script src="https://cdn.jsdelivr.net/npm/fengari-web@0.1.4/dist/fengari-web.js"></script>
+
+    
     
   <link rel="stylesheet" href="style.css">
 </head>
@@ -81,37 +81,7 @@ print("Factorial of 5 is: " .. factorial(5))</textarea>
             }
             outputText += '\n';
         };
-        
-        // Run Lua code
-        runButton.addEventListener('click', () => {
-            const code = codeEditor.getValue();
-            outputText = ''; // Clear previous output
-            outputView.innerHTML = '> Executing code...\n';
-            
-            // Add a slight delay for visual effect
-            setTimeout(() => {
-                try {
-                    // Execute the Lua code
-                    window.fengari_web.load(code)();
-                    
-                    // Display the output
-                    outputView.innerHTML = '> Execution complete\n\n' + outputText;
-                    
-                    // Cyberpunk terminal effect - add random characters at the end
-                    const randomChars = Array(20).fill(0).map(() => 
-                        String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-                    ).join('');
-                    
-                    outputView.innerHTML += '\n\n//' + randomChars;
-                } catch (err) {
-                    // Display error
-                    outputView.innerHTML = '> Error detected\n\n' + err.message;
-                }
-                
-                // Scroll to bottom of output
-                outputView.scrollTop = outputView.scrollHeight;
-            }, 300);
-        });
+    
         
         // Add some cyberpunk effects
         document.addEventListener('DOMContentLoaded', () => {
