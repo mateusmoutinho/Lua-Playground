@@ -11,7 +11,7 @@ void insert_on_element_inner(c2wasm_js_var element, const char *value){
     c2wasm_call_object_prop(element,"insertAdjacentHTML",args);
 }
 
-LuaCEmbedResponse *custom_print(LuaCEmbed *lua_args){
+LuaCEmbedResponse *my_custom_print_func(LuaCEmbed *lua_args){
 
     c2wasm_js_var id_output_view  = c2wasm_create_array();
     c2wasm_append_array_string(id_output_view, "outputView");
@@ -91,8 +91,8 @@ c2wasm_js_var execute_lua_machine(){
 
 
     LuaCEmbed *lua_virtual_machine = newLuaCEmbedEvaluation();
-    LuaCEmbed_load_native_libs(lua_virtual_machine);
-    LuaCEmbed_add_callback(lua_virtual_machine,"print",custom_print);
+   LuaCEmbed_load_native_libs(lua_virtual_machine);
+    LuaCEmbed_add_callback(lua_virtual_machine,"print",my_custom_print_func);
     LuaCEmbed_evaluate(lua_virtual_machine,"%s",code_buffer);
    
     if(LuaCEmbed_has_errors(lua_virtual_machine)){
