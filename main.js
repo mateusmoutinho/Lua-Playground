@@ -1584,15 +1584,15 @@ var wasmImports = {
   /** @export */
   _setitimer_js: __setitimer_js,
   /** @export */
+  c2wams_object_memcpy_string,
+  /** @export */
   c2wasm_append_array_string,
   /** @export */
   c2wasm_call_object_prop,
   /** @export */
   c2wasm_create_array,
   /** @export */
-  c2wasm_get_string_len,
-  /** @export */
-  c2wasm_memcpy_string,
+  c2wasm_get_object_string_len_prop,
   /** @export */
   c2wasm_start,
   /** @export */
