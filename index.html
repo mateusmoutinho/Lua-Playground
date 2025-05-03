@@ -3,335 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lua Playground - Cyberpunk Edition</title>
-    <!-- CodeMirror CSS - Code Editor -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/cyberpunk.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>Cyberpunk Lua Playground</title>
+    <!-- CodeMirror CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/midnight.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/lua/lua.min.js"></script>
+    
+    <!-- Fengari Lua VM for the web -->
+    <script src="https://cdn.jsdelivr.net/npm/fengari-web@0.1.4/dist/fengari-web.js"></script>
+    
+    <style>
+        :root {
+            --neon-blue: #0ef;
+            --neon-pink: #f0e;
+            --neon-purple: #c0f;
+            --dark-bg: #0a0a12;
+            --darker-bg: #05050a;
+            --glow-effect: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            --panel-bg: rgba(15, 15, 25, 0.7);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(15, 238, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(to right, rgba(240, 0, 238, 0.05), rgba(0, 238, 255, 0.05));
+        }
+        
+        header {
+            background-color: var(--darker-bg);
+            padding: 15px;
+            border-bottom: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        h1 {
+            margin: 0;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .glitch-effect {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 0 0 5px var(--neon-blue); }
+            2% { text-shadow: 2px 0 5px var(--neon-pink), -2px 0 5px var(--neon-blue); }
+            4% { text-shadow: 0 0 5px var(--neon-blue); }
+            50% { text-shadow: 0 0 5px var(--neon-blue); }
+            52% { text-shadow: 1px 0 3px var(--neon-purple), -1px 0 3px var(--neon-blue); }
+            54% { text-shadow: 0 0 5px var(--neon-blue); }
+            100% { text-shadow: 0 0 5px var(--neon-blue); }
+        }
+        
+        .run-button {
+            background-color: var(--darker-bg);
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 8px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--neon-blue);
+            letter-spacing: 1px;
+            outline: none;
+        }
+        
+        .run-button:hover {
+            background-color: rgba(0, 238, 255, 0.2);
+            box-shadow: var(--glow-effect);
+        }
+        
+        .run-button:active {
+            transform: scale(0.95);
+        }
+        
+        main {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 70px);
+            overflow: hidden;
+        }
+        
+        .editor-container, .output-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            padding: 15px;
+            box-sizing: border-box;
+            margin: 10px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
+        }
+        
+        .container-header {
+            color: var(--neon-blue);
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--neon-blue);
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .container-header::before, .container-header::after {
+            content: '>';
+            font-weight: bold;
+        }
+        
+        .CodeMirror {
+            height: calc(100% - 35px);
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            background-color: var(--darker-bg) !important;
+        }
+        
+        .cm-s-midnight.CodeMirror {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .output-view {
+            height: calc(100% - 35px);
+            overflow-y: auto;
+            background-color: var(--darker-bg);
+            padding: 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #0f0;
+            white-space: pre-wrap;
+            word-break: break-all;
+            position: relative;
+        }
+        
+        .output-view::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            opacity: 0.5;
+        }
+        
+        .scanline {
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 42;
+            animation: scanline 5s linear infinite;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            .editor-container, .output-container {
+                flex: none;
+                height: 50%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="glitch">LUA  PLAYGROUND</h1>
-        </header>
-
-        <div class="grid">
-            <!-- Code Editor Panel -->
-            <div class="panel code-panel">
-                <div class="control-bar">
-                    <h2 class="panel-title">CODE.lua<span class="cursor"></span></h2>
-                    <div>
-                        <select id="examples" class="cybr-select">
-                            <option value="">Select example...</option>
-                            <option value="hello">Hello World</option>
-                            <option value="factorial">Factorial</option>
-                            <option value="fibonacci">Fibonacci</option>
-                            <option value="table">Table Operations</option>
-                            <option value="closure">Closures</option>
-                        </select>
-                        <button id="run-btn" class="cybr-btn">RUN</button>
-                        <button id="clear-btn" class="cybr-btn">CLEAR</button>
-                    </div>
-                </div>
-                <textarea id="code-editor">-- Welcome to LUA Cyberpunk Playground
--- Write your code here...
-
-function main()
-    print("Hello, Cyberpunk World!")
-    print("The time is " .. os.date("%X"))
+    <div class="scanline"></div>
+    <header>
+        <h1 class="glitch-effect">Cyberpunk Lua Playground</h1>
+        <button id="runButton" class="run-button">Execute</button>
+    </header>
     
-    -- Cyberpunk inspired calculation
-    local year = 2077
-    local current_year = os.date("%Y")
-    print("Years until Cyberpunk: " .. (year - tonumber(current_year)))
-    
-    -- Display some Lua capabilities
-    local message = "CODE IS POETRY"
-    for i = 1, #message do
-        print(string.sub(message, 1, i))
+    <main>
+        <div class="editor-container">
+            <div class="container-header">CODE.LUA</div>
+            <textarea id="codeEditor">-- Your Lua code here
+print("Hello, cyberpunk world!")
+print("Running Lua " .. _VERSION)
+
+local function factorial(n)
+    if n <= 1 then
+        return 1
+    else
+        return n * factorial(n-1)
     end
 end
 
-main()</textarea>
-            </div>
-
-            <!-- Output Panel -->
-            <div class="panel output-panel">
-                <div class="control-bar">
-                    <h2 class="panel-title">CONSOLE.output</h2>
-                    <button id="copy-btn" class="cybr-btn">COPY</button>
-                </div>
-                <pre id="output" class="output-content">// Output will appear here after running your code...
-// SYSTEM READY...</pre>
-            </div>
+print("Factorial of 5 is: " .. factorial(5))</textarea>
         </div>
-    </div>
-
-    <!-- CodeMirror JS - Code Editor -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/lua/lua.min.js"></script>
-
-    <!-- Fengari Lua VM -->
-    <script src="https://cdn.jsdelivr.net/npm/fengari-web@0.1.4/dist/fengari-web.js"></script>
-
-    <!-- Custom JS -->
+        
+        <div class="output-container">
+            <div class="container-header">TERMINAL_OUTPUT</div>
+            <div id="outputView" class="output-view">// Output will appear here\n> Awaiting execution...</div>
+        </div>
+    </main>
+    
     <script>
-        // Initialize CodeMirror editor with Lua mode
-        const editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+        // Initialize CodeMirror
+        const codeEditor = CodeMirror.fromTextArea(document.getElementById('codeEditor'), {
             mode: 'lua',
-            theme: 'cyberpunk',
+            theme: 'midnight',
             lineNumbers: true,
-            autoCloseBrackets: true,
-            matchBrackets: true,
             indentUnit: 4,
-            smartIndent: true,
             tabSize: 4,
             indentWithTabs: false,
             lineWrapping: true,
-            extraKeys: {
-                "Tab": function(cm) {
-                    cm.replaceSelection("    ", "end");
-                }
-            }
+            scrollbarStyle: 'overlay',
+            autofocus: true,
+            autoCloseBrackets: true,
+            highlightSelectionMatches: true
         });
-
-        // Elements
-        const outputElement = document.getElementById('output');
-        const runButton = document.getElementById('run-btn');
-        const clearButton = document.getElementById('clear-btn');
-        const copyButton = document.getElementById('copy-btn');
-        const examplesDropdown = document.getElementById('examples');
-
-        // Redirect Lua print to our output element
-        const originalPrint = fengari.lua.lua_print;
-        fengari.lua.lua_print = function(...args) {
-            const values = Array.from(args).slice(1); // Skip the first argument which is the Lua state
-            const output = values.map(v => fengari.interop.tojs(v)).join('\t');
-            outputElement.textContent += output + '\n';
-            return 0;
+        
+        // Initialize output view
+        const outputView = document.getElementById('outputView');
+        const runButton = document.getElementById('runButton');
+        
+        // Create a custom print function for Lua
+        const originalPrint = window.fengari_web.interop.luaconf.lua.print;
+        let outputText = '';
+        
+        window.fengari_web.interop.luaconf.lua.print = function(...args) {
+            for (let i = 0; i < args.length; i++) {
+                let arg = args[i];
+                if (typeof arg === 'object' && arg !== null) {
+                    // Try to convert object to string if possible
+                    arg = window.fengari_web.interop.tojs(arg);
+                }
+                outputText += arg + (i < args.length - 1 ? '\t' : '');
+            }
+            outputText += '\n';
         };
-
-        // Run the Lua code in the editor
-        function runLuaCode() {
-            // Clear previous output
-            outputElement.textContent = "// Running code...\n";
-            outputElement.textContent += "// SYSTEM INITIALIZED...\n\n";
-
+        
+        // Run Lua code
+        runButton.addEventListener('click', () => {
+            const code = codeEditor.getValue();
+            outputText = ''; // Clear previous output
+            outputView.innerHTML = '> Executing code...\n';
+            
+            // Add a slight delay for visual effect
             setTimeout(() => {
                 try {
-                    const code = editor.getValue();
-                    fengari.load(code)();
-                    outputElement.textContent += "\n// EXECUTION COMPLETE";
-                } catch (error) {
-                    outputElement.textContent += "\n// ERROR: " + error.message;
+                    // Execute the Lua code
+                    window.fengari_web.load(code)();
+                    
+                    // Display the output
+                    outputView.innerHTML = '> Execution complete\n\n' + outputText;
+                    
+                    // Cyberpunk terminal effect - add random characters at the end
+                    const randomChars = Array(20).fill(0).map(() => 
+                        String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+                    ).join('');
+                    
+                    outputView.innerHTML += '\n\n//' + randomChars;
+                } catch (err) {
+                    // Display error
+                    outputView.innerHTML = '> Error detected\n\n' + err.message;
                 }
-            }, 100);
-        }
-
-        // Clear editor and output
-        function clearAll() {
-            editor.setValue('');
-            outputElement.textContent = "// Output cleared.\n// SYSTEM READY...";
-        }
-
-        // Copy output to clipboard
-        function copyOutput() {
-            const outputText = outputElement.textContent;
-            navigator.clipboard.writeText(outputText)
-                .then(() => {
-                    // Show notification
-                    const oldText = copyButton.textContent;
-                    copyButton.textContent = "COPIED!";
+                
+                // Scroll to bottom of output
+                outputView.scrollTop = outputView.scrollHeight;
+            }, 300);
+        });
+        
+        // Add some cyberpunk effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Random flicker effect for neon elements
+            setInterval(() => {
+                if (Math.random() > 0.97) {
+                    document.querySelector('h1').style.opacity = Math.random() * 0.5 + 0.5;
                     setTimeout(() => {
-                        copyButton.textContent = oldText;
-                    }, 1500);
-                })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-        }
-
-        // Load example code
-        function loadExample(example) {
-            let code = "";
-            switch (example) {
-                case "hello":
-                    code = `-- Hello World Example
-
-print("Hello, Cyberpunk World!")
-
--- Using string concatenation
-local name = "V"
-print("Welcome, " .. name .. "!")
-
--- Using string formatting
-print(string.format("Current memory: %d bytes", collectgarbage("count") * 1024))`;
-                    break;
-                case "factorial":
-                    code = `-- Factorial Example
-
-function factorial(n)
-    if n == 0 then
-        return 1
-    else
-        return n * factorial(n - 1)
-    end
-end
-
-print("Factorial Calculator")
-
-for i = 0, 10 do
-    print(i .. "! = " .. factorial(i))
-end`;
-                    break;
-                case "fibonacci":
-                    code = `-- Fibonacci Example
-
-function fibonacci(n)
-    if n <= 1 then
-        return n
-    else
-        return fibonacci(n-1) + fibonacci(n-2)
-    end
-end
-
-print("Fibonacci Sequence")
-
-print("Using recursive function:")
-for i = 0, 10 do
-    print("fibonacci(" .. i .. ") = " .. fibonacci(i))
-end
-
-print("\nUsing iterative approach:")
-local a, b = 0, 1
-for i = 0, 10 do
-    print("fibonacci(" .. i .. ") = " .. a)
-    a, b = b, a + b
-end`;
-                    break;
-                case "table":
-                    code = `-- Table Operations Example
-
--- Creating a table
-local cyberpunk_chars = {
-    "V",
-    "Johnny Silverhand",
-    "Judy Alvarez",
-    "Panam Palmer",
-    "Jackie Welles"
-}
-
-print("Cyberpunk Characters:")
-for i, char in ipairs(cyberpunk_chars) do
-    print(i .. ". " .. char)
-end
-
--- Table as dictionary
-local char_info = {
-    V = "Protagonist",
-    Johnny = "Rockerboy",
-    Judy = "Techie",
-    Panam = "Nomad",
-    Jackie = "Merc"
-}
-
-print("\nCharacter Classes:")
-for name, class in pairs(char_info) do
-    print(name .. " is a " .. class)
-end
-
--- Table methods
-print("\nTable Manipulation:")
-table.insert(cyberpunk_chars, "Dexter DeShawn")
-print("Added: " .. cyberpunk_chars[#cyberpunk_chars])
-
-table.sort(cyberpunk_chars)
-print("Sorted characters:")
-for i, char in ipairs(cyberpunk_chars) do
-    print(i .. ". " .. char)
-end`;
-                    break;
-                case "closure":
-                    code = `-- Closures Example
-
-function counter(start)
-    local count = start or 0
-    
-    -- This inner function forms a closure
-    return function(increment)
-        increment = increment or 1
-        count = count + increment
-        return count
-    end
-end
-
-print("Closure Example - Counters")
-
-local counter1 = counter(10)
-local counter2 = counter(100)
-
-print("Counter 1 starts at 10")
-print("First call: " .. counter1())  -- 11
-print("Second call: " .. counter1()) -- 12
-print("Increment by 5: " .. counter1(5)) -- 17
-
-print("\nCounter 2 starts at 100")
-print("First call: " .. counter2())  -- 101
-print("Second call: " .. counter2()) -- 102
-
--- Another closure example: a function factory
-function makeMultiplier(factor)
-    return function(x)
-        return x * factor
-    end
-end
-
-print("\nMultiplier functions:")
-local double = makeMultiplier(2)
-local triple = makeMultiplier(3)
-
-print("Double 5: " .. double(5)) -- 10
-print("Triple 5: " .. triple(5)) -- 15`;
-                    break;
-                default:
-                    return;
-            }
-            editor.setValue(code);
-        }
-
-        // Event listeners
-        runButton.addEventListener('click', runLuaCode);
-        clearButton.addEventListener('click', clearAll);
-        copyButton.addEventListener('click', copyOutput);
-        examplesDropdown.addEventListener('change', function() {
-            loadExample(this.value);
-            this.value = ""; // Reset the dropdown
-        });
-
-        // Keyboard shortcut for running code (Ctrl+Enter)
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                e.preventDefault();
-                runLuaCode();
-            }
-        });
-
-        // Add a little cyberpunk effect to the output on page load
-        window.addEventListener('load', function() {
-            let message = "// SYSTEM BOOTING...\n";
-            outputElement.textContent = "";
-            
-            let i = 0;
-            const typeEffect = setInterval(function() {
-                if (i < message.length) {
-                    outputElement.textContent += message.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typeEffect);
-                    outputElement.textContent += "\n// INITIALIZATION COMPLETE...\n// READY FOR CODE EXECUTION...\n";
+                        document.querySelector('h1').style.opacity = 1;
+                    }, 100);
                 }
-            }, 30);
+            }, 200);
         });
     </script>
 </body>
