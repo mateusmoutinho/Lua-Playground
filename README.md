@@ -1,5 +1,6 @@
 # Lua-Playground
-A lua Playground using web assembly
+A lua Playground using web assembly, [available here](https://mateusmoutinho.github.io/Lua-Playground/)
+
 
 ### Build from scratch
 
