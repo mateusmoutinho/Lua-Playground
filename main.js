@@ -918,10 +918,6 @@ async function createWasm() {
       runtimeKeepaliveCounter = 0;
     };
 
-  var __emscripten_throw_longjmp = () => {
-      throw Infinity;
-    };
-
   var timers = {
   };
   
@@ -1016,8 +1012,6 @@ async function createWasm() {
       timers[which] = { id, timeout_ms };
       return 0;
     };
-
-  var _emscripten_date_now = () => Date.now();
 
   var abortOnCannotGrowMemory = (requestedSize) => {
       abort(`Cannot enlarge memory arrays to size ${requestedSize} bytes (OOM). Either (1) compile with -sINITIAL_MEMORY=X with X higher than the current value ${HEAP8.length}, (2) compile with -sALLOW_MEMORY_GROWTH which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with -sABORTING_MALLOC=0`);
@@ -1161,7 +1155,6 @@ async function createWasm() {
       HEAPU32[((pnum)>>2)] = num;
       return 0;
     };
-
 
 
 
@@ -1580,8 +1573,6 @@ var wasmImports = {
   /** @export */
   _emscripten_runtime_keepalive_clear: __emscripten_runtime_keepalive_clear,
   /** @export */
-  _emscripten_throw_longjmp: __emscripten_throw_longjmp,
-  /** @export */
   _setitimer_js: __setitimer_js,
   /** @export */
   c2wams_object_memcpy_string,
@@ -1594,9 +1585,9 @@ var wasmImports = {
   /** @export */
   c2wasm_get_object_string_len_prop,
   /** @export */
-  c2wasm_start,
+  c2wasm_set_object_prop_string,
   /** @export */
-  emscripten_date_now: _emscripten_date_now,
+  c2wasm_start,
   /** @export */
   emscripten_resize_heap: _emscripten_resize_heap,
   /** @export */
@@ -1605,8 +1596,6 @@ var wasmImports = {
   fd_seek: _fd_seek,
   /** @export */
   fd_write: _fd_write,
-  /** @export */
-  invoke_vii,
   /** @export */
   private_c2wasm_set_object_prop_function_raw,
   /** @export */
@@ -1635,17 +1624,6 @@ var _emscripten_stack_get_free = () => (_emscripten_stack_get_free = wasmExports
 var __emscripten_stack_restore = (a0) => (__emscripten_stack_restore = wasmExports['_emscripten_stack_restore'])(a0);
 var __emscripten_stack_alloc = (a0) => (__emscripten_stack_alloc = wasmExports['_emscripten_stack_alloc'])(a0);
 var _emscripten_stack_get_current = () => (_emscripten_stack_get_current = wasmExports['emscripten_stack_get_current'])();
-
-function invoke_vii(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
 
 
 // include: postamble.js
