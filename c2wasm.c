@@ -182,10 +182,11 @@ EM_JS(void* ,c2wasm_array_memcpy_string,(long stack_index, int index,int string_
     let array = window.c2wasm_stack[stack_index];
     let value = array[index];
     for(let i = 0; i < size; i++){
-        if(i+string_index >= value.length){
+      
+        let current_char = value.charCodeAt(i+start_string);
+        if(isNaN(current_char)){
             break;
         }
-        let current_char = value.charCodeAt(i+string_index);
         wasmExports.c2wasm_set_char(dest,i,current_char);
     }
     return dest;
@@ -419,6 +420,30 @@ EM_JS(c2wasm_js_var,c2wasm_create_function_raw,(void *callback),{
 
 
 
+
+EM_JS(long ,c2wasm_get_string_len, (c2wasm_js_var string_index), {
+    return window.c2wasm_stack[string_index].length;
+});
+
+EM_JS(void *,c2wasm_memcpy_string,(c2wasm_js_var stack_index,int start_string, char *dest, int size), {
+    let value = window.c2wasm_stack[stack_index];
+    for(let i = 0; i < size; i++){
+      
+        let current_char = value.charCodeAt(i+start_string);
+        if(isNaN(current_char)){
+            break;
+        }
+        wasmExports.c2wasm_set_char(dest,i,current_char);
+    }
+    return dest;
+});
+
+
+
+
+
+
+
 EM_JS(void,c2wasm_free,(long stack_index),{
     if(window.c2wasm_stack.length <= stack_index){
         return;
@@ -643,15 +668,15 @@ EM_JS(int ,c2wasm_get_object_string_len_prop,(c2wasm_js_var stack_index, const c
 });
 
 
-EM_JS(void *,c2wams_object_memcpy_string,(c2wasm_js_var stack_index, const char *prop_name, char *dest, int size), {
+EM_JS(void *,c2wams_object_memcpy_string,(c2wasm_js_var stack_index, const char *prop_name, int start_string, char *dest, int size), {
     let object = window.c2wasm_stack[stack_index];
     let prop_name_formatted = window.c2wasm_get_string(prop_name);
     let value = object[prop_name_formatted];
     for(let i = 0; i < size; i++){
-        if(i >= value.length){
+        let current_char = value.charCodeAt(i+start_string);
+        if(isNaN(current_char)){
             break;
         }
-        let current_char = value.charCodeAt(i);
         wasmExports.c2wasm_set_char(dest,i,current_char);
     }
     return dest;
@@ -685,7 +710,6 @@ EM_JS(int ,c2wasm_get_object_prop_bool,(c2wasm_js_var stack_index, const char *p
 
 EM_JS(c2wasm_js_var , c2wasm_get_object_prop_any,(c2wasm_js_var stack_index, const char *prop_name),{
     let object = window.c2wasm_stack[stack_index];
-
 
     let prop_name_formatted = window.c2wasm_get_string(prop_name);
     let value  = object[prop_name_formatted];
