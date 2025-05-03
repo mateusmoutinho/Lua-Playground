@@ -1,5 +1,6 @@
 #include "c2wasm.c"
 #include "LuaCEmbedOne.c"
+#include <stdlib.h>
 
 
 c2wasm_js_var execute(){
@@ -9,7 +10,10 @@ c2wasm_js_var execute(){
     c2wasm_append_array_string(id_collect_args, "codeEditor");
     c2wasm_js_var code = c2wasm_call_object_prop(c2wasm_document,"getElementById", id_collect_args);
 
-    string_si
+    long size = c2wasm_get_string_len(code);
+    char *code_buffer = malloc(size);
+    c2wasm_memcpy_string(code,0,code_buffer,size);
+    
     return c2wasm_undefined;
 }
 
