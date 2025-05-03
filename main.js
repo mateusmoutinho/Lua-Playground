@@ -4837,15 +4837,17 @@ var wasmImports = {
   /** @export */
   _tzset_js: __tzset_js,
   /** @export */
-  c2wams_object_memcpy_string,
-  /** @export */
   c2wasm_append_array_string,
   /** @export */
   c2wasm_call_object_prop,
   /** @export */
   c2wasm_create_array,
   /** @export */
-  c2wasm_get_object_string_len_prop,
+  c2wasm_get_object_prop_any,
+  /** @export */
+  c2wasm_get_string_len,
+  /** @export */
+  c2wasm_memcpy_string,
   /** @export */
   c2wasm_set_object_prop_string,
   /** @export */
