@@ -87,7 +87,19 @@ c2wasm_js_var execute_lua_machine(){
     c2wasm_js_var output_view_element = c2wasm_call_object_prop(c2wasm_document,"getElementById", id_output_view);
     c2wasm_set_object_prop_string(output_view_element,"innerHTML","");
 
+
+    LuaCEmbed *lua_virtual_machine = newLuaCEmbedEvaluation();
+    LuaCEmbed_add_callback(lua_virtual_machine,"print",custom_print);
+    LuaCEmbed_evaluate(lua_virtual_machine,code_buffer);
+   
+    if(LuaCEmbed_has_errors(lua_virtual_machine)){
+        char *error_msg = LuaCEmbed_get_error_msg(lua_virtual_machine);
+        c2wasm_set_object_prop_string(output_view_element,"innerHTML",error_msg);
+    }
     
+
+    LuaCEmbed_free(lua_virtual_machine);
+    free(code_buffer);
     return c2wasm_undefined;
 }
 
