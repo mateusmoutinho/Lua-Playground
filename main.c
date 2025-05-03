@@ -89,11 +89,12 @@ c2wasm_js_var execute_lua_machine(){
 
 
     LuaCEmbed *lua_virtual_machine = newLuaCEmbedEvaluation();
+    LuaCEmbed_load_native_libs(lua_virtual_machine);
     LuaCEmbed_add_callback(lua_virtual_machine,"print",custom_print);
     LuaCEmbed_evaluate(lua_virtual_machine,code_buffer);
    
     if(LuaCEmbed_has_errors(lua_virtual_machine)){
-        char *error_msg = LuaCEmbed_get_error_msg(lua_virtual_machine);
+       const  char *error_msg = LuaCEmbed_get_error_message(lua_virtual_machine);
         c2wasm_set_object_prop_string(output_view_element,"innerHTML",error_msg);
     }
     
