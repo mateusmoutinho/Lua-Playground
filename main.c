@@ -3,13 +3,29 @@
 #include <stdlib.h>
 
 
+void insert_on_element_inner(c2wasm_js_var element, const char *value){
+    c2wasm_js_var args = c2wasm_create_array();
+    c2wasm_append_array_string(args, "beforeend");
+    c2wasm_append_array_string(args, value);
+    c2wasm_call_object_prop(element,"insertAdjacentHTML",args);
+}
+
 LuaCEmbedResponse *custom_print(LuaCEmbed *args){
 
     c2wasm_js_var id_output_view  = c2wasm_create_array();
     c2wasm_append_array_string(id_output_view, "outputView");
     c2wasm_js_var output_view_element = c2wasm_call_object_prop(c2wasm_document,"getElementById", id_output_view);
     
-
+    long args_size = LuaCEmbed_get_total_args(args);
+    for(long i = 0; i < args_size; i++){
+        int type = LuaCEmbed_get_arg_type(args,i);
+        if(type == LUA_CEMBED_NUMBER){
+            double value = LuaCEmbed_get_double_arg(args,i);
+            char msg[20];
+            sprintf(msg,"%lf",value);
+            insert_on_element_inner(output_view_element,msg);
+        }
+    }
     
    return NULL;
 }
