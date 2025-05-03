@@ -20,7 +20,7 @@ LuaCEmbedResponse *custom_print(LuaCEmbed *lua_args){
     int args_size = LuaCEmbed_get_total_args(lua_args);
     for(int i = 0; i < args_size; i++){
         int type = LuaCEmbed_get_arg_type(lua_args,i);
-       printf("arg %d type %d\n",i,type);
+       
         if(type == LUA_CEMBED_NUMBER){
             double value = LuaCEmbed_get_double_arg(lua_args,i);
             char msg[20];
@@ -92,7 +92,7 @@ c2wasm_js_var execute_lua_machine(){
 
     LuaCEmbed *lua_virtual_machine = newLuaCEmbedEvaluation();
     LuaCEmbed_load_native_libs(lua_virtual_machine);
-    LuaCEmbed_add_global_callback(lua_virtual_machine,"print",custom_print);
+    LuaCEmbed_add_callback(lua_virtual_machine,"print",custom_print);
     LuaCEmbed_evaluate(lua_virtual_machine,"%s",code_buffer);
    
     if(LuaCEmbed_has_errors(lua_virtual_machine)){
