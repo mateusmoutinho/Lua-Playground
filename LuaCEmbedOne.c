@@ -34076,7 +34076,7 @@ lua_Integer  LuaCEmbed_get_total_args(LuaCEmbed *self){
 
 lua_Integer  LuaCEmbed_get_arg_type(LuaCEmbed *self,lua_Integer index){
 
-    lua_Integer  formatted_index = index + LUA_CEMBED_INDEX_DIF;
+    int  formatted_index = index + LUA_CEMBED_INDEX_DIF;
 
     if(formatted_index > self->total_args){
         return LUA_CEMBED_NIL;
@@ -34200,7 +34200,7 @@ LuaCEmbedTable  * LuaCEmbed_get_arg_table(LuaCEmbed *self,lua_Integer index){
 
 LuaCEmbedTable* LuaCEmbed_run_args_lambda(LuaCEmbed *self, lua_Integer index, LuaCEmbedTable *args_to_call, lua_Integer total_returns){
 
-    long  formatted_index = index + LUA_CEMBED_INDEX_DIF;
+    int  formatted_index = index + LUA_CEMBED_INDEX_DIF;
     char *formatted_arg = private_LuaCembed_format(PRIVATE_LUA_CEMBED_ARGS_,self->stack_leve,formatted_index-1);
 
     if(privateLuaCEmbed_put_arg_on_top(self,index)){
@@ -36720,7 +36720,7 @@ LuaCEmbedTable  *LuaCEmbedTable_new_sub_table_appending(LuaCEmbedTable *self){
 
     //equivalent of: full_sub_table_name = {}
     long index= LuaCEmbedTable_get_listable_size(self) +1;
-    char *full_sub_table_name = private_LuaCembed_format("%s_%d", self->global_name, index);
+    char *full_sub_table_name = private_LuaCembed_format("%s_%ld", self->global_name, index);
     lua_newtable(self->main_object->state);
     lua_setglobal(self->main_object->state,full_sub_table_name);
 
@@ -36779,7 +36779,7 @@ LuaCEmbedTable  *LuaCEmbedTable_get_sub_table_by_index(LuaCEmbedTable *self, lua
             }
 
             //equivalent of full_sub_table_name = table[index]
-            char *full_sub_table_name = private_LuaCembed_format("%s_%d", self->global_name, index);
+            char *full_sub_table_name = private_LuaCembed_format("%s_%ld", self->global_name, (long)index);
             lua_setglobal(self->main_object->state,full_sub_table_name);
 
             LuaCEmbedTable  *possible = privateLuaCEmbedTableArray_find_by_internal_index(
