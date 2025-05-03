@@ -24,9 +24,49 @@ LuaCEmbedResponse *custom_print(LuaCEmbed *args){
             char msg[20];
             sprintf(msg,"%lf",value);
             insert_on_element_inner(output_view_element,msg);
+            insert_on_element_inner(output_view_element," ");
         }
+        else if(type == LUA_CEMBED_STRING){
+            char *value = LuaCEmbed_get_str_arg(args,i);
+            insert_on_element_inner(output_view_element,value);
+            insert_on_element_inner(output_view_element," ");
+        }
+        else if(type == LUA_CEMBED_BOOL){
+            int value = LuaCEmbed_get_bool_arg(args,i);
+            if(value){
+                insert_on_element_inner(output_view_element,"true");
+            }else{
+                insert_on_element_inner(output_view_element,"false");
+            }
+            insert_on_element_inner(output_view_element," ");
+        }
+        else if(type == LUA_CEMBED_NIL){
+            insert_on_element_inner(output_view_element,"nil");
+            insert_on_element_inner(output_view_element," ");
+        }
+        else if(type == LUA_CEMBED_FUNCTION){
+            insert_on_element_inner(output_view_element,"function");
+            insert_on_element_inner(output_view_element," ");
+        }
+        else  if(type == LUA_CEMBED_TABLE){
+            insert_on_element_inner(output_view_element,"table");
+            insert_on_element_inner(output_view_element," ");
+        }
+        else if(type == LUA_TUSERDATA){
+            insert_on_element_inner(output_view_element,"userdata");
+            insert_on_element_inner(output_view_element," ");
+        }
+        else{
+            char msg[20];
+            sprintf(msg,"unknown type %d",type);
+            insert_on_element_inner(output_view_element,msg);
+            insert_on_element_inner(output_view_element," ");
+        }
+        
+        
     }
-    
+    insert_on_element_inner(output_view_element,"<br>");
+
    return NULL;
 }
 
