@@ -2037,13 +2037,13 @@ privateUniversalGarbageElement * private_newUniversalGarbageSimpleElement(void (
 
 #ifndef LuaCEmbed_types
 #define LuaCEmbed_types
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 typedef struct LuaCEmbed{
     lua_State *state;
@@ -2061,13 +2061,13 @@ typedef struct LuaCEmbed{
 }LuaCEmbed;
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 typedef struct {
 
@@ -2080,26 +2080,26 @@ typedef struct {
 
 }LuaCEmbedResponse;
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 typedef lua_Integer private_lua_cembed_incremented_arg ;
 
 #endif
 
 #ifndef LuaCEmbed_typesB
 #define LuaCEmbed_typesB
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 typedef struct {
@@ -2115,13 +2115,13 @@ typedef struct {
 
 #ifndef LuaCEmbed_typesC
 #define LuaCEmbed_typesC
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 typedef struct {
 
@@ -2147,13 +2147,13 @@ typedef struct {
 
 } LuaCembedArgsModule;
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 typedef struct {
@@ -2181,13 +2181,13 @@ typedef struct {
 
 }LuaCEmbedGlobalModule;
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 typedef struct {
     LuaCEmbedResponse * (*send_multi_return)(LuaCEmbedTable *table);
@@ -2204,13 +2204,13 @@ typedef struct {
 
 }LuaCEmbedResponseModule;
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 typedef struct {
 
     void  (*append_string)(LuaCEmbedTable *self,  const char *value);
@@ -2274,13 +2274,13 @@ typedef struct {
 
 }LuaCembedTableModule;
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 typedef struct {
@@ -2299,13 +2299,13 @@ typedef struct {
 
 #ifndef LuaCEmbed_typesD
 #define LuaCEmbed_typesD
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 typedef struct{
     LuaCEmbedTypeModule  types;
@@ -2365,13 +2365,13 @@ typedef struct{
 
 #ifndef LuaCEmbed_consts
 #define LuaCEmbed_consts
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 #ifndef LUA_CEMBED_INDEX_DIF
 #define LUA_CEMBED_INDEX_DIF 1
 #endif
@@ -2383,13 +2383,13 @@ typedef struct{
 
 #define PRIVATE_LUA_CEMBED_ONE_MB (1024 * 1024)
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 #define  PRIVATE_LUA_CEMBED_TIMEOUT_ERROR "timeout error"
@@ -2405,13 +2405,13 @@ typedef struct{
 #define PRIVATE_LUA_CEMBED_ELEMENT_DOES_NOT_HAVE_KEY "index %d at object %s not have a key"
 #define PRIVVATE_LUA_CEMBED_TIMEOUT_ERROR "timeout error"
 #define PRIVATE_LUA_CEMBED_LIB_PROP_WRONG_TYPE "lib prop %s its %s insteadd of %s"
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 #define PRIVATE_LUA_CEMBED_TOTAL_LIBS "private_lua_c_embed_total_running_libs"
 #define PRIVATE_LUA_CEMBED_STACK_LEVEL "private_lua_c_embed_stack_level"
@@ -2435,25 +2435,25 @@ typedef struct{
 #define PRIVATE_LUA_CEMBED_ANONYMOUS_FUNC_TABLE_ "private_lua_c_embed_anononymous_func_table_%d_%d"
 #define PRIVATE_LUA_CEMBED_ARGS_ "private_lua_c_embed_args_%d_%d"
 #define  PRIVATE_LUA_CEMBED_MULTIRETURN_ "private_lua_c_embed_multi_return_%d_%d"
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 #define PRIVATE_LUACEMBED_NO_RETURN 0
 #define PRIVATE_LUACEMBED_ONE_RETURN 1
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 #define PRIVATE_LUA_CEMBED_STRING_RESPONSE 1
 #define PRIVATE_LUA_CEMBED_LONG_RESPONSE 2
 #define PRIVATE_LUA_CEMBED_DOUBLE_RESPONSE 3
@@ -2466,13 +2466,13 @@ typedef struct{
 
 #define LUA_CEMBED_OK 0
 #define LUA_CEMBED_GENERIC_ERROR (-1)
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 #define LUA_CEMBED_NOT_FOUND LUA_TNONE
 #define LUA_CEMBED_STRING LUA_TSTRING
 #define LUA_CEMBED_NUMBER LUA_TNUMBER
@@ -2494,26 +2494,26 @@ typedef struct{
 
 #ifndef LuaCEmbed_fdeclare
 #define LuaCEmbed_fdeclare
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int LuaCEmbed_ensure_arg_exist(LuaCEmbed *self, private_lua_cembed_incremented_arg index);
 
 int private_LuaCEmbed_ensure_top_stack_arg_type(LuaCEmbed *self, int index,int arg_type);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 lua_Integer privateLuaCEmbed_put_arg_on_top(LuaCEmbed *self, lua_Integer index);
 
@@ -2537,13 +2537,13 @@ LuaCEmbedTable  * LuaCEmbed_get_arg_table(LuaCEmbed *self,lua_Integer index);
 
 LuaCEmbedTable* LuaCEmbed_run_args_lambda(LuaCEmbed *self, lua_Integer index, LuaCEmbedTable *args_to_call, lua_Integer total_returns);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 lua_Integer private_LuaCembed_run_code_with_args(LuaCEmbed *self,lua_Integer index,const char *code,va_list args);
@@ -2563,13 +2563,13 @@ bool LuaCEmbed_get_bool_arg_clojure_evalation(LuaCEmbed *self,lua_Integer index,
 
 char* LuaCEmbed_get_string_arg_clojure_evalation(LuaCEmbed *self,lua_Integer index,const char *code,...);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -2601,13 +2601,13 @@ void  privata_LuaCEmbed_decrement_stack(LuaCEmbed *self);
 
 void LuaCEmbed_free(LuaCEmbed *self);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int privateLuaCEmbed_main_callback_handler(lua_State  *L);
@@ -2622,13 +2622,13 @@ void LuaCEmbed_add_callback(LuaCEmbed *self, const char *callback_name, LuaCEmbe
 void LuaCEmbed_add_global_callback(LuaCEmbed *self, const char *callback_name, LuaCEmbedResponse* (*callback)(LuaCEmbed *args));
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 char * LuaCEmbed_get_error_message(LuaCEmbed *self);
@@ -2644,13 +2644,13 @@ void LuaCEmbed_dangerous_raise_error_jumping(LuaCEmbed *self,const char *error_m
 
 void LuaCEmbed_dangerous_raise_self_error_jumping(LuaCEmbed *self);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 #ifdef _WIN32
@@ -2688,25 +2688,25 @@ bool LuaCEmbed_get_evaluation_bool(LuaCEmbed *self,const char *code, ...);
 
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
 int LuaCEmbed_ensure_global_type(LuaCEmbed *self, const char *name,int expected_type);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int LuaCEmbed_get_global_type(LuaCEmbed *self,const char *name);
@@ -2730,13 +2730,13 @@ LuaCEmbedTable * LuaCembed_get_global_table(LuaCEmbed *self, const char *name);
 
 LuaCEmbedTable * LuaCembed_new_global_table(LuaCEmbed *self, const char *name);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 void LuaCEmbed_set_global_string(LuaCEmbed *self, const char *name, const  char *value);
 
@@ -2750,13 +2750,13 @@ void LuaCEmbed_set_global_bool(LuaCEmbed *self, const char *name, bool value);
 
 void LuaCEmbed_set_global_table(LuaCEmbed *self, const char *name, LuaCEmbedTable *table);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCEmbed_set_long_lib_prop(LuaCEmbed *self,const char *name,lua_Integer value);
@@ -2782,13 +2782,13 @@ char * LuaCEmbed_get_string_lib_prop(LuaCEmbed *self,const char *name);
 
 LuaCEmbedTable *LuaCEmbed_get_table_lib_prop(LuaCEmbed *self,const char *name);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 int  private_LuaCemb_internal_free(lua_State *L);
 
@@ -2800,13 +2800,13 @@ int LuaCembed_send_self_as_lib(LuaCEmbed *self);
 
 int LuaCembed_send_global_as_lib(LuaCEmbed *self,const char *global_name);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -2817,13 +2817,13 @@ void LuaCEmbed_set_memory_limit(LuaCEmbed *self, double limit);
 static void *private_LuaCembed_custom_allocator(void *ud, void *ptr, size_t osize, size_t nsize) ;
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void  LuaCEmbedTable_append_table(LuaCEmbedTable *self, LuaCEmbedTable *table);
@@ -2839,13 +2839,13 @@ void  LuaCEmbedTable_append_double(LuaCEmbedTable *self, double  value);
 
 void  LuaCEmbedTable_append_bool(LuaCEmbedTable *self,  bool value);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedTable * private_newLuaCembedTable(LuaCEmbed *main_embed, const char *format, ...);
@@ -2855,37 +2855,37 @@ int  private_lua_cEmbed_unpack(LuaCEmbedTable *self,const char * previews_functi
 void privateLuaCEmbedTable_free(LuaCEmbedTable *self);
 
 void privateLuaCEmbedTable_free_setting_nill(LuaCEmbedTable *self);
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCembedTable_destroy_prop(LuaCEmbedTable *self, const char *name);
 
 void LuaCEmbedTable_destroy_by_index(LuaCEmbedTable *self, long index);
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 int privateLuaCEmbedTable_ensure_type_with_key(LuaCEmbedTable *self, const char *name, int expected_type);
 
 int privateLuaCEmbedTable_ensure_type_with_index(LuaCEmbedTable *self, long index, int expected_type);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 char *LuaCembedTable_get_key_by_index(LuaCEmbedTable *self, lua_Integer index);
@@ -2911,13 +2911,13 @@ char * LuaCEmbedTable_get_raw_string_by_index(LuaCEmbedTable *self, lua_Integer 
 
 bool LuaCEmbedTable_get_bool_by_index(LuaCEmbedTable *self, lua_Integer index);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -2933,13 +2933,13 @@ bool  LuaCembedTable_get_bool_prop(LuaCEmbedTable *self, const char *name);
 
 int  LuaCEmbedTable_get_type_prop(LuaCEmbedTable *self, const char *name);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 void  LuaCEmbedTable_set_string_by_index(LuaCEmbedTable *self, lua_Integer index, const char *value);
 
@@ -2954,13 +2954,13 @@ void  LuaCEmbedTable_set_bool_by_index(LuaCEmbedTable *self, lua_Integer index, 
 
 void  LuaCEmbedTable_set_evaluation_by_index(LuaCEmbedTable *self, lua_Integer index, const char *code, ...);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void  private_LuaCEmbedTable_add_space(LuaCEmbedTable *self, lua_Integer formatted_index);
@@ -2975,13 +2975,13 @@ void  LuaCEmbedTable_insert_double_at_index(LuaCEmbedTable *self, lua_Integer in
 
 void  LuaCEmbedTable_insert_table_at_index(LuaCEmbedTable *self, lua_Integer index,LuaCEmbedTable *table);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -3002,13 +3002,13 @@ void  LuaCEmbedTable_set_bool_prop(LuaCEmbedTable *self, const char *name, bool 
 
 void  LuaCEmbedTable_set_evaluation_prop(LuaCEmbedTable *self, const char *name, const char *code, ...);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedTable  *LuaCEmbedTable_new_sub_table_appending(LuaCEmbedTable *self);
@@ -3019,26 +3019,26 @@ LuaCEmbedTable  *LuaCEmbedTable_get_sub_table_by_index(LuaCEmbedTable *self, lua
 
 void LuaCEmbedTable_set_sub_table_by_index(LuaCEmbedTable *self, lua_Integer index,LuaCEmbedTable *sub_table);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedTable  *LuaCEmbedTable_new_sub_table_by_key(LuaCEmbedTable *self, const char *name);
 
 LuaCEmbedTable  *LuaCEmbedTable_get_sub_table_by_key(LuaCEmbedTable *self, const char *name);
 
 void LuaCEmbedTable_set_sub_table_prop(LuaCEmbedTable *self, const char *name, LuaCEmbedTable *sub_table);
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 typedef struct {
@@ -3060,13 +3060,13 @@ LuaCEmbedTable  *privateLuaCEmbedTableArray_find_by_internal_index(privateLuaCEm
 
 void  privateLuaCEmbedTableArray_free(privateLuaCEmbedTableArray *self);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedResponse *private_LuaCEmbedReturn_raw();
 
@@ -3104,13 +3104,13 @@ LuaCEmbedResponse * LuaCEmbed_send_table(LuaCEmbedTable *table);
 
 LuaCEmbedResponse * LuaCEmbed_send_multi_return(LuaCEmbedTable *table);
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 const char * LuaCembed_convert_arg_code(int arg_code);
@@ -3122,66 +3122,66 @@ char * private_LuaCembed_format(const char *expresion, ...);
 
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedNamespace newLuaCEmbedNamespace();
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCembedArgsModule newLuaCembedArgsModule();
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedGlobalModule newLuaCEmbedGlobalModule();
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedResponseModule newLuaCEmbedResponseModule();
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCembedTableModule newLuaCembedTableModule();
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -33997,13 +33997,13 @@ void private_UniversalGarbageSimpleElement_free(privateUniversalGarbageElement *
 
 #ifndef LuaCEmbed_fdefine
 #define LuaCEmbed_fdefine
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int LuaCEmbed_ensure_arg_exist(LuaCEmbed *self, private_lua_cembed_incremented_arg index){
@@ -34038,7 +34038,6 @@ int private_LuaCEmbed_ensure_top_stack_arg_type(LuaCEmbed *self, int index,int a
 }
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
@@ -34046,9 +34045,10 @@ int private_LuaCEmbed_ensure_top_stack_arg_type(LuaCEmbed *self, int index,int a
 
 //silver_chain_scope_end
 
+
 lua_Integer  privateLuaCEmbed_put_arg_on_top(LuaCEmbed *self, lua_Integer index){
     PRIVATE_LUA_CEMBED_PROTECT_NUM
-    lua_Integer  formatted_index = index + LUA_CEMBED_INDEX_DIF;
+    int  formatted_index = index + LUA_CEMBED_INDEX_DIF;
 
     if(formatted_index > self->total_args){
         privateLuaCEmbed_raise_error_not_jumping(self,PRIVATE_LUA_CEMBED_ARG_NOT_PROVIDED,formatted_index,self->current_function);
@@ -34251,13 +34251,13 @@ LuaCEmbedTable* LuaCEmbed_run_args_lambda(LuaCEmbed *self, lua_Integer index, Lu
 
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 lua_Integer private_LuaCembed_run_code_with_args(LuaCEmbed *self,lua_Integer index,const char *code,va_list args){
@@ -34413,13 +34413,13 @@ char* LuaCEmbed_get_string_arg_clojure_evalation(LuaCEmbed *self,lua_Integer ind
 
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbed * newLuaCEmbedEvaluation(){
@@ -34527,13 +34527,13 @@ void LuaCEmbed_free(LuaCEmbed *self){
     free(self);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int privateLuaCEmbed_main_callback_handler(lua_State  *L){
@@ -34761,13 +34761,13 @@ void LuaCEmbed_add_global_callback(LuaCEmbed *self, const char *callback_name, L
     private_LuaCEmbed_add_evaluation_callback(self,callback_name,callback);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 char * LuaCEmbed_get_error_message(LuaCEmbed *self){
@@ -34841,13 +34841,13 @@ void LuaCEmbed_dangerous_raise_self_error_jumping(LuaCEmbed *self){
     lua_error(self->state);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 #ifdef _WIN32
@@ -35096,13 +35096,13 @@ bool LuaCEmbed_get_evaluation_bool(LuaCEmbed *self,const char *code, ...){
 }
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -35126,13 +35126,13 @@ int LuaCEmbed_ensure_global_type(LuaCEmbed *self, const char *name,int expected_
     return LUA_CEMBED_OK;
 
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 int LuaCEmbed_get_global_type(LuaCEmbed *self,const char *name){
@@ -35289,13 +35289,13 @@ LuaCEmbedTable* LuaCEmbed_run_global_lambda(LuaCEmbed *self, const char *name, L
     return result;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCEmbed_set_global_string(LuaCEmbed *self, const char *name, const  char *value){
@@ -35340,13 +35340,13 @@ void LuaCEmbed_set_global_table(LuaCEmbed *self, const char *name, LuaCEmbedTabl
     lua_setglobal(self->state,name);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCEmbed_set_long_lib_prop(LuaCEmbed *self,const char *name,lua_Integer value){
@@ -35495,13 +35495,13 @@ LuaCEmbedTable *LuaCEmbed_get_table_lib_prop(LuaCEmbed *self,const char *name){
     return creaeted;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 int private_LuaCemb_internal_free(lua_State *L){
     LuaCEmbed  *self = (LuaCEmbed*)lua_touserdata(L, lua_upvalueindex(1));
@@ -35586,13 +35586,13 @@ int LuaCembed_send_global_as_lib(LuaCEmbed *self,const char *global_name){
     return 1;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCEmbed_set_memory_limit(LuaCEmbed *self, double limit){
@@ -35622,13 +35622,13 @@ static void *private_LuaCembed_custom_allocator(void *ud, void *ptr, size_t osiz
 }
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 void  LuaCEmbedTable_append_table(LuaCEmbedTable *self, LuaCEmbedTable *table){
     PRIVATE_LUA_CEMBED_TABLE_PROTECT_VOID
 
@@ -35715,13 +35715,13 @@ void  LuaCEmbedTable_append_evaluation(LuaCEmbedTable *self, const char *code, .
     lua_settop(self->main_object->state, 0);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -35788,13 +35788,13 @@ void privateLuaCEmbedTable_free(LuaCEmbedTable *self){
 }
 
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void LuaCembedTable_destroy_prop(LuaCEmbedTable *self, const char *name){
@@ -35847,13 +35847,13 @@ void LuaCEmbedTable_destroy_by_index(LuaCEmbedTable *self, long index){
 
 
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -35896,13 +35896,13 @@ int privateLuaCEmbedTable_ensure_type_with_index(LuaCEmbedTable *self, long inde
     );
     return LUA_CEMBED_GENERIC_ERROR;
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 lua_Integer  LuaCEmbedTable_get_full_size(LuaCEmbedTable *self){
@@ -36219,13 +36219,13 @@ bool LuaCEmbedTable_get_bool_by_index(LuaCEmbedTable *self, lua_Integer index){
     return LUA_CEMBED_GENERIC_ERROR;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 int  LuaCEmbedTable_get_type_prop(LuaCEmbedTable *self, const char *name){
     PRIVATE_LUA_CEMBED_TABLE_PROTECT_NUM
@@ -36309,13 +36309,13 @@ bool  LuaCembedTable_get_bool_prop(LuaCEmbedTable *self , const char *name){
     return value;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 void  LuaCEmbedTable_set_string_by_index(LuaCEmbedTable *self, lua_Integer index, const char *value){
@@ -36433,13 +36433,13 @@ void  LuaCEmbedTable_set_evaluation_by_index(LuaCEmbedTable *self, lua_Integer i
 
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 void  private_LuaCEmbedTable_add_space(LuaCEmbedTable *self, lua_Integer formatted_index){
 
@@ -36559,13 +36559,13 @@ void  LuaCEmbedTable_insert_table_at_index(LuaCEmbedTable *self, lua_Integer ind
     lua_settop(self->main_object->state, 0);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -36705,13 +36705,13 @@ void  LuaCEmbedTable_set_evaluation_prop(LuaCEmbedTable *self, const char *name,
 
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedTable  *LuaCEmbedTable_new_sub_table_appending(LuaCEmbedTable *self){
     PRIVATE_LUA_CEMBED_TABLE_PROTECT_NULL
@@ -36844,13 +36844,13 @@ void LuaCEmbedTable_set_sub_table_by_index(LuaCEmbedTable *self, lua_Integer ind
     PRIVATE_LUA_CEMBED_TABLE_CLEAR_STACK
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedTable  *LuaCEmbedTable_new_sub_table_by_key(LuaCEmbedTable *self, const char *name){
     PRIVATE_LUA_CEMBED_TABLE_PROTECT_NULL
@@ -36961,13 +36961,13 @@ void LuaCEmbedTable_set_sub_table_prop(LuaCEmbedTable *self, const char *name, L
     free(full_sub_table_name);
     PRIVATE_LUA_CEMBED_TABLE_CLEAR_STACK
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 privateLuaCEmbedTableArray *newprivateLuaCEmbedTableArray(){
@@ -37031,13 +37031,13 @@ void  privateLuaCEmbedTableArray_free(privateLuaCEmbedTableArray *self){
     free(self);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -37156,13 +37156,13 @@ void private_LuaCEmbedResponse_free(LuaCEmbedResponse  *self){
     free(self);
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 const char * LuaCembed_convert_arg_code(int arg_code){
@@ -37210,13 +37210,13 @@ char * private_LuaCembed_format(const char *expresion, ...){
     va_end(args);
     return  result;
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 
@@ -37269,13 +37269,13 @@ LuaCEmbedNamespace newLuaCEmbedNamespace(){
     return self;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCembedArgsModule newLuaCembedArgsModule(){
@@ -37297,13 +37297,13 @@ LuaCembedArgsModule newLuaCembedArgsModule(){
     self.run_lambda = LuaCEmbed_run_args_lambda;
     return self;
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedGlobalModule newLuaCEmbedGlobalModule(){
@@ -37327,13 +37327,13 @@ LuaCEmbedGlobalModule newLuaCEmbedGlobalModule(){
 
     return self;
 }
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCEmbedResponseModule newLuaCEmbedResponseModule(){
@@ -37352,13 +37352,13 @@ LuaCEmbedResponseModule newLuaCEmbedResponseModule(){
     return  self;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 
 LuaCembedTableModule newLuaCembedTableModule(){
@@ -37420,13 +37420,13 @@ LuaCembedTableModule newLuaCembedTableModule(){
     return self;
 }
 
-
 //silver_chain_scope_start
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 
 //silver_chain_scope_end
+
 
 LuaCEmbedTypeModule newLuaCEmbedTypeModule(){
     LuaCEmbedTypeModule  self = {0};

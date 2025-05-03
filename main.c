@@ -1,4 +1,3 @@
-#define __linux__
 #include "c2wasm.c"
 #include "LuaCEmbedOne.c"
 #include <stdlib.h>
@@ -12,7 +11,7 @@ void insert_on_element_inner(c2wasm_js_var element, const char *value){
 }
 
 LuaCEmbedResponse *my_custom_print_func(LuaCEmbed *lua_args){
-
+   
     c2wasm_js_var id_output_view  = c2wasm_create_array();
     c2wasm_append_array_string(id_output_view, "outputView");
     c2wasm_js_var output_view_element = c2wasm_call_object_prop(c2wasm_document,"getElementById", id_output_view);
@@ -20,7 +19,6 @@ LuaCEmbedResponse *my_custom_print_func(LuaCEmbed *lua_args){
     int args_size = LuaCEmbed_get_total_args(lua_args);
     for(int i = 0; i < args_size; i++){
         int type = LuaCEmbed_get_arg_type(lua_args,i);
-       
         if(type == LUA_CEMBED_NUMBER){
             double value = LuaCEmbed_get_double_arg(lua_args,i);
             char msg[20];
@@ -29,7 +27,8 @@ LuaCEmbedResponse *my_custom_print_func(LuaCEmbed *lua_args){
             insert_on_element_inner(output_view_element," ");
         }
         else if(type == LUA_CEMBED_STRING){
-           char *value = LuaCEmbed_get_str_arg(lua_args,i);
+
+            char *value = LuaCEmbed_get_str_arg(lua_args,i);
             insert_on_element_inner(output_view_element,value);
             insert_on_element_inner(output_view_element," ");
         }
