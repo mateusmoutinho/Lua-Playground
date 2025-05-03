@@ -34,3 +34,12 @@ If you don't have Python, you can use [Yahr](https://github.com/OUIsolutions/yah
 ```bash
 yahr
 ```
+
+### Project Dependencies
+
+| lib                                                      | file                                               | used for                     | 
+|----------------------------------------------------------|----------------------------------------------------|------------------------------|
+|[c2wasm](https://github.com/OUIsolutions/C2Wasm)          | [c2wasm.c](/c2wasm.c)                              | manipulate the dom           |
+|[LuaCEmbed](https://github.com/OUIsolutions/LuaCEmbed)    | [LuaCEmbedOne.c](/LuaCEmbedOne.c)                  | embeding lua virtual machine |
+|[lua](https://www.lua.org/)                               |--- embed inside [LuaCEmbedOne.c](/LuaCEmbedOne.c)  | the lua programing language  | 
+|[codemirror](https://codemirror.net/)                     | imported inside [index.html](/index.html)          | create the text editor       |
