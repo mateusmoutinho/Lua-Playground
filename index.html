@@ -62,26 +62,6 @@ print("Factorial of 5 is: " .. factorial(5))</textarea>
             highlightSelectionMatches: true
         });
         
-        // Initialize output view
-        const outputView = document.getElementById('outputView');
-        const runButton = document.getElementById('runButton');
-        
-        // Create a custom print function for Lua
-        const originalPrint = window.fengari_web.interop.luaconf.lua.print;
-        let outputText = '';
-        
-        window.fengari_web.interop.luaconf.lua.print = function(...args) {
-            for (let i = 0; i < args.length; i++) {
-                let arg = args[i];
-                if (typeof arg === 'object' && arg !== null) {
-                    // Try to convert object to string if possible
-                    arg = window.fengari_web.interop.tojs(arg);
-                }
-                outputText += arg + (i < args.length - 1 ? '\t' : '');
-            }
-            outputText += '\n';
-        };
-    
         
         // Add some cyberpunk effects
         document.addEventListener('DOMContentLoaded', () => {
